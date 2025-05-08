@@ -12,7 +12,8 @@ app.get("/", (c) => {
     return sendResponse(c, 200, SERVICE_UP);
 });
 //user routes..........
-app.route("/users", userRoutes);
+console.log("inside app");
+app.route('/', userRoutes);
 app.get("/error", (c) => {
     c.status(422);
     c.var.logger.debug("Test error only visible in development");

@@ -5,24 +5,19 @@ import { createUser } from "../service/user-service.js";
 import { sendResponse } from "../utils/send-response.js";
 import { vCreateUser } from "../validations/user-validations.js";
 
-
-
 export const createUserHandlers = factory.createHandlers(async (c) => {
-
    console.log("inside save method");
-   
-    try {
+   try {
 
     const reqBody = await c.req.json();
+    console.log("Received body: ", reqBody);
 
     const validUserReq = vCreateUser.parse(reqBody);
-   
     const user = await createUser(validUserReq);
 
     return sendResponse(c, CREATED, USER_CREATED, user);
-
     } catch (error) {
-
+       console.error("Create user error:", error);
       return c.json({msg:error},NOT_FOUND);
       
     }

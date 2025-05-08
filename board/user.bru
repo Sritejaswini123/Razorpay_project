@@ -1,0 +1,37 @@
+meta {
+  name: user
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://localhost:3000/api/v1/users
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "first_name": "Sri",
+    "last_name": "Gulla",
+    "email": "sri@example.com",
+    "phone": "9876543210",
+    "dob": "2001-01-01",
+    "doj": "2024-05-01",
+    "designation": "Developer"
+  }
+  
+}
+
+tests {
+  {
+    "first_name": "Sri",
+    "last_name": "Gulla",
+    "email": "sri@example.com",
+    "phone": "9876543210",
+    "dob": "2001-01-01",
+    "doj": "2024-05-01",
+    "designation": "Developer"
+  }
+  
+}
