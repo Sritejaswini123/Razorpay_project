@@ -53,8 +53,10 @@ export const getUserByIdHandlers = factory.createHandlers(async (c) => {
 //get all users
 export const getAllUsersHandlers = factory.createHandlers(async (c) => {
   try {
-    const users = await getAllUsers();
-    return sendResponse(c, OK, USER_FOUND, users);
+    const limit = parseInt(c.req.query("limit") || "10"); //converts a string into an integer.
+    const offset = parseInt(c.req.query('offset') || '0'); // default offset is 0
+    const { result, totalCount}= await getAllUsers(limit, offset);
+    return sendResponse(c, OK, USER_FOUND, {totalUsers : totalCount, users: result, limit, offset});
   } catch (error) {
     return sendResponse(c, INTERNAL_SERVER_ERROR, USER_NOT_FOUND);
   }

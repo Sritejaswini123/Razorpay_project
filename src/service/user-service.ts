@@ -6,15 +6,14 @@ export const createUser=async (userData: NewUser)=>{
     const  user =await db.insert(users).values(userData).returning();
     return user[0];
   }
-
 //get user by id
   export const getUserById = async (userId: number) => {
     return await getRecordById(users, userId);
   };
   //get all users 
-export const getAllUsers = async () => {
-  return await getAllRecords(users); 
-};
+export const getAllUsers = async (limit: number, offset: number) => {
+  return await getAllRecords(users, limit, offset);
+}
 
 //delete user by id
 export const deleteUserById = async (userId: number) => {

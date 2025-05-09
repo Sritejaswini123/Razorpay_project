@@ -14,9 +14,10 @@ app.get("/", (c) => {
   return sendResponse(c, 200, SERVICE_UP);
 });
 
-console.log(SERVICE_UP,`http://localhost:3000/v1.0/`);
 
 
+//user routes..........
+console.log("inside app");
 app.route('/', userRoutes);
 
 
