@@ -28,11 +28,12 @@ export const createUserHandlers = factory.createHandlers(async (c) => {
   } catch (error) {
 
     if (error instanceof ZodError) {
-    const errorMessage = error.errors?.[0]?.message || 'Validation error';
-    return c.json({ message: errorMessage }, NOT_FOUND);
+      const errorMessage = error.errors?.[0]?.message || 'Validation error';
+      return c.json({ message: errorMessage }, NOT_FOUND);
     }
-    return c.json({c, UNPROCESSABLE_ENTITY});
-  }}
+    return c.json({ c, UNPROCESSABLE_ENTITY });
+  }
+}
 );
 
 
@@ -81,6 +82,14 @@ export const deleteUserByIdHandlers = factory.createHandlers(async (c) => {
 
 
 
-export const updateUserByIdHandlers =factory.createHandlers(async(c)=>{
-  
+export const updateUserByIdHandlers = factory.createHandlers(async (c) => {
+  try {
+    const userId = c.req.param('user_id');
+    const reqBody = c.req.json();
+    const validatedUserData=vUpdateUser.parse(reqBody);
+
+  } catch (error) {
+
+  }
+
 })
