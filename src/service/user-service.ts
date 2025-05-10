@@ -1,5 +1,5 @@
 import db from "../database/db.js";
-import { users, type NewUser } from "../database/schemas/users.js";
+import { users, type NewUser, type User, type UsersTable } from "../database/schemas/users.js";
 import { getRecordById , getAllRecords, deleteRecordById} from "./base-db-services.js";
 //save user 
 export const createUser=async (userData: NewUser)=>{
@@ -20,4 +20,8 @@ export const deleteUserById = async (userId: number) => {
   return await deleteRecordById(users, userId);
 };
   
+
+// export const updateUser=async(userData: UsersTable,userId: number)=>{
+//   return await updateRecord<User>(userData,userId);
+// }
   

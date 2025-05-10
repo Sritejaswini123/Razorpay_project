@@ -10,10 +10,10 @@ export const DB_ID_INVALID = "Invalid database ID";
 
 export const DB_RECORD_NOT_FOUND = "Database record not found";
 
-export const USER_FOUND = "User found successfully";
+export const USER_FETCHED = "User fetched successfully";
 
 export const USER_ID_REQUIRED = "User ID is required";
 
 export const USER_NOT_FOUND = "User not found";
 
-export const USER_DELETEED = "User deleted"
+export const USER_DELETEED = "User deleted successfully"
