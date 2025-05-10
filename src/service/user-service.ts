@@ -11,8 +11,8 @@ export const createUser=async (userData: NewUser)=>{
     return await getRecordById(users, userId);
   };
   //get all users 
-export const getAllUsers = async () => {
-  return await getAllRecords(users);
+export const getAllUsers = async (page_no:number) => {
+  return await getAllRecords(page_no,users);
 }
 
 //delete user by id

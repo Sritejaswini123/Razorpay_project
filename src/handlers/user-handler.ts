@@ -1,6 +1,6 @@
 
 import { ZodError } from "zod";
-import { USER_CREATED, USER_DELETEED, USER_FETCHED, USER_ID_REQUIRED, USER_NOT_FOUND } from "../constants/app-messages.js";
+import { USER_CREATED, USER_DELETEED, USER_FETCHED, USER_ID_REQUIRED, USER_NOT_FOUND, USERS_FETCHED } from "../constants/app-messages.js";
 import { BAD_REQUEST, CREATED, INTERNAL_SERVER_ERROR, NOT_FOUND, OK } from "../constants/http-status-codes.js";
 import { UNPROCESSABLE_ENTITY } from "../constants/http-status-phrases.js";
 import { users, type NewUser, type User } from "../database/schemas/users.js";
@@ -8,8 +8,7 @@ import factory from "../factory.js";
 import { createUser } from "../service/base-db-services.js";
 import { deleteUserById, getAllUsers, getUserById } from "../service/user-service.js";
 import { sendResponse } from "../utils/send-response.js";
-import { vCreateUser, vUpdateUser, type vUpdatedUser } from "../validations/user-validations.js";
-import db from "../database/db.js";
+import { vCreateUser } from "../validations/user-validations.js";
 
 type updateRecords = NewUser
 
@@ -54,8 +53,9 @@ export const getUserByIdHandlers = factory.createHandlers(async (c) => {
 //get all users
 export const getAllUsersHandlers = factory.createHandlers(async (c) => {
   try {
-    const user = await getAllUsers();
-    return sendResponse(c, OK, USER_FETCHED, user);
+    const page=Number(c.req.param('page_no'));
+    const user = await getAllUsers(page);
+    return sendResponse(c, OK, USERS_FETCHED, user);
   } catch (error) {
     return sendResponse(c, INTERNAL_SERVER_ERROR, USER_NOT_FOUND);
   }

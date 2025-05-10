@@ -1,4 +1,4 @@
-import { eq } from "drizzle-orm";
+import { eq,asc } from "drizzle-orm";
 import db from "../database/db.js"
 import { users, type NewUser, type User, type UsersTable } from "../database/schemas/users.js";
 import { count } from "drizzle-orm";
@@ -21,8 +21,14 @@ export const getRecordById = async <DBRecordRow>(table: DBTable,id: number) => {
 };
 
 //get all users 
-export const getAllRecords = async <DBRecordRow>(table: DBTable) => {
-    const result = await db.select().from(table);
+export const getAllRecords = async <DBRecordRow>(page:number,   table: DBTable) => {
+    const pageSize=10;
+    const result =  await db
+    .select()
+    .from(table)
+    .orderBy(asc(table.id))
+    .limit(pageSize) 
+    .offset((page-1) * pageSize);
     return result;
 };
 //delete 

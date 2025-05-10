@@ -10,6 +10,9 @@ export const DB_ID_INVALID = "Invalid database ID";
 
 export const DB_RECORD_NOT_FOUND = "Database record not found";
 
+export const USERS_FETCHED = "Users fetched successfully";
+
+
 export const USER_FETCHED = "User fetched successfully";
 
 export const USER_ID_REQUIRED = "User ID is required";
