@@ -18,6 +18,7 @@ export const createUserHandlers = factory.createHandlers(async (c) => {
     const reqBody = await c.req.json();
     
     const validUserReq = vCreateUser.parse(reqBody);
+   
     
     const userData: NewUser = {
       ...validUserReq,
@@ -46,6 +47,7 @@ export const createUserHandlers = factory.createHandlers(async (c) => {
       const errorMessage = error.errors?.[0]?.message || 'Validation error';
       return c.json({ message: errorMessage }, NOT_FOUND);
     }
+    
     return c.json({ error: error }, UNPROCESSABLE_ENTITY);
 
   }
