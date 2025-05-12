@@ -7,8 +7,8 @@ export const createUser=async (userData: NewUser)=>{
     return user[0];
   }
 //get user by id
-  export const getUserById = async (userId: number) => {
-    return await getRecordById(users, userId);
+  export const getUserById =(userId: number) => {
+    return  getRecordById(users, userId);
   };
   //get all users 
 export const getAllUsers = async (page_no:number) => {

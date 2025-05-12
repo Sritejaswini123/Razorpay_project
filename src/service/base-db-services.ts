@@ -16,7 +16,7 @@ export const createUser = async<DBRecordRow>(table : DBTable , record : NewDBRec
 }
 
 export const getRecordById = async <DBRecordRow>(table: DBTable,id: number) => {
-    const result = await db.select().from(table).where(eq(users.id,id));
+    const result = await db.select().from(table).where(eq(table.id,id));
     return result[0];
 };
 
@@ -35,7 +35,7 @@ export const getAllRecords = async <DBRecordRow>(page:number,   table: DBTable) 
 export const deleteRecordById = async <DBRecordRow>(table: DBTable, id: number) => {
     const result = await db
     .delete(table)
-    .where(eq(users.id, id))
+    .where(eq(table.id, id))
     .returning();
     return result[0];
   };

@@ -1,4 +1,7 @@
-import { pgTable , text, serial, date, timestamp,index} from "drizzle-orm/pg-core";
+import { drizzle } from "drizzle-orm/node-postgres";
+import { seed } from "drizzle-seed";
+import { pgTable , text, serial, date, timestamp,index, PgColumn, type PgTableWithColumns} from "drizzle-orm/pg-core";
+
 export const users=pgTable("users",{
     id: serial().primaryKey(),
     first_name: text().notNull(),      
@@ -12,14 +15,16 @@ export const users=pgTable("users",{
     updated_at: timestamp().notNull().defaultNow(),
     deleted_at:timestamp()
 
-    /// add fileds
-    // status 
+   
 },t=> [
     index("users_email_idx").on(t.email),
     index("users_first_name_idx").on(t.first_name),
 ]);
 
 
+
 export type UsersTable = typeof users;
 export type User = typeof users.$inferSelect;
 export type NewUser = typeof users.$inferInsert;
+
+
