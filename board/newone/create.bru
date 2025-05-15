@@ -1,0 +1,23 @@
+meta {
+  name: create
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://192.168.1.37:3000/v1.0/users
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+      "first_name": "prem",
+      "last_name": "Chand",
+      "email": "premChand@gmail.com",
+      "phone": "+916300007890",
+      "dob": "1984-03-09",
+      "doj": "2024-04-07",
+      "designation": " java developer"
+    }
+}

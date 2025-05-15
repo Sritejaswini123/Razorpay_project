@@ -1,27 +1,30 @@
+// user service
+import type { NewUser } from "../database/schemas/users.js";
+
 import db from "../database/db.js";
-import { users, type NewUser, type User, type UsersTable } from "../database/schemas/users.js";
-import { getRecordById , getAllRecords, deleteRecordById} from "./base-db-services.js";
-//save user 
-export const createUser=async (userData: NewUser)=>{
-    const  user =await db.insert(users).values(userData).returning();
-    return user[0];
-  }
-//get user by id
-  export const getUserById =(userId: number) => {
-    return  getRecordById(users, userId);
-  };
-  //get all users 
-export const getAllUsers = async (page_no:number) => {
-  return await getAllRecords(page_no,users);
+import { users } from "../database/schemas/users.js";
+import { deleteRecordById, getAllRecords, getRecordById } from "./base-db-services.js";
+
+// save user
+export async function createUser(userData: NewUser) {
+  const user = await db.insert(users).values(userData).returning();
+  return user[0];
 }
 
-//delete user by id
-export const deleteUserById = async (userId: number) => {
+// get user by id
+export function getUserById(userId: number) {
+  return getRecordById(users, userId);
+}
+// get all users
+export async function getAllUsers(page_no: number) {
+  return await getAllRecords(page_no, users);
+}
+
+// delete user by id
+export async function deleteUserById(userId: number) {
   return await deleteRecordById(users, userId);
-};
-  
+}
 
 // export const updateUser=async(userData: UsersTable,userId: number)=>{
 //   return await updateRecord<User>(userData,userId);
 // }
-  

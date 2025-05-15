@@ -1,6 +1,7 @@
 /* eslint-disable node/no-process-env */
 import { defineConfig } from "drizzle-kit";
 import fs from "node:fs";
+
 export default defineConfig({
   dialect: "postgresql",
   schema: "./dist/src/database/schemas/*",
