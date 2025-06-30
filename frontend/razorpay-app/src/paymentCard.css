@@ -1,0 +1,65 @@
+/* PaymentCard.css */
+
+.payment-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 320px;
+  padding: 24px;
+  background-color: #ffffff;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  margin: 40px auto;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.payment-card h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 20px;
+}
+
+.payment-card label {
+  font-size: 14px;
+  color: #374151;
+  display: block;
+  text-align: left;
+  margin-bottom: 6px;
+}
+
+.payment-card input[type="number"] {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 16px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  margin-bottom: 20px;
+}
+
+.payment-card input[type="number"]:focus {
+  border-color: #350cdb;
+  box-shadow: 0 0 0 2px rgba(15, 121, 182, 0.2);
+}
+
+.payment-card button {
+  background-color: #063037;
+  color: #ffffff;
+  border: none;
+  padding: 12px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 6px;
+  transition: background-color 0.3s, transform 0.1s;
+}
+
+.payment-card button:hover {
+  background-color: #0f766e;
+}
+
+.payment-card button:active {
+  transform: scale(0.98);
+}
