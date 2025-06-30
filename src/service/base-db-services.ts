@@ -10,7 +10,7 @@ type NewDBRecord = NewUser;
 type DBRecordRow = User;
 
 export async function createUser<DBRecordRow>(table: DBTable, record: NewDBRecord) {
-  const result = await db .insert(table) .values(record).returning();
+  const result = await db.insert(table).values(record).returning();
   return result[0];
 }
 // getRecordById

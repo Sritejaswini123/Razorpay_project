@@ -1,10 +1,11 @@
+import { eq } from "drizzle-orm";
+import crypto from "node:crypto";
 // src/service/paymentService.ts
 import Razorpay from "razorpay";
-import crypto from "crypto";
+
+import { razorpayConfig } from "../config/razopayConfig";
 import db from "../database/db";
 import { payments } from "../database/schemas/payment";
-import { razorpayConfig } from "../config/razopayConfig";
-import { eq } from "drizzle-orm";
 
 interface CreateOrderParams {
   amount: number;
@@ -23,7 +24,7 @@ export async function createRazorpayOrder({ amount, currency = razorpayConfig.cu
 
   // Insert order in DB
   await db.insert(payments).values({
-    amount,
+    amount: amount * 100, // Razorpay expects amount in paise
     currency: order.currency ?? "",
     receipt: order.receipt ?? "",
     razorpay_order_id: order.id ?? "",
@@ -50,4 +51,4 @@ export async function updatePaymentOnVerification(razorpay_order_id: string, raz
       updated_at: new Date(),
     })
     .where(eq(payments.razorpay_order_id, razorpay_order_id));
-} 
+}

@@ -1,7 +1,7 @@
+import "./PaymentCard.css";
+import { useState } from "react";
 
-import './PaymentCard.css';
-import React, { useState } from "react";
-const PaymentCard = () => {
+function PaymentCard() {
   const [amount, setAmount] = useState("");
 
   const handlePayment = async () => {
@@ -16,7 +16,7 @@ const PaymentCard = () => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          amount: parseInt(amount) ,
+          amount: Number.parseInt(amount),
           receipt: `receipt_${Date.now()}`,
         }),
       });
@@ -41,7 +41,7 @@ const PaymentCard = () => {
           name: "Tez Razorpay",
           description: "Transaction",
           order_id,
-          handler: async function (response) {
+          async handler(response) {
             const verifyRes = await fetch("http://localhost:7000/v1.0/verify-payment", {
               method: "POST",
               headers: { "Content-Type": "application/json" },
@@ -55,7 +55,8 @@ const PaymentCard = () => {
             const verifyData = await verifyRes.json();
             if (verifyData.success) {
               alert("Payment Successful!");
-            } else {
+            }
+            else {
               alert("Payment verification failed.");
             }
           },
@@ -77,7 +78,8 @@ const PaymentCard = () => {
       };
 
       document.body.appendChild(script);
-    } catch (error) {
+    }
+    catch (error) {
       console.error(error);
       alert("Error during payment initialization.");
     }
@@ -91,11 +93,11 @@ const PaymentCard = () => {
         type="number"
         placeholder="Enter amount"
         value={amount}
-        onChange={(e) => setAmount(e.target.value)}
+        onChange={e => setAmount(e.target.value)}
       />
       <button onClick={handlePayment}>PAY NOW</button>
     </div>
   );
-};
+}
 
 export default PaymentCard;

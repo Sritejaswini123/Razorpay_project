@@ -9,7 +9,7 @@
   text-align: center;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
   margin: 40px auto;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: "Segoe UI", sans-serif;
 }
 
 .payment-card h3 {
@@ -35,7 +35,9 @@
   border-radius: 6px;
   outline: none;
   box-sizing: border-box;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
   margin-bottom: 20px;
 }
 
@@ -53,7 +55,9 @@
   cursor: pointer;
   width: 100%;
   border-radius: 6px;
-  transition: background-color 0.3s, transform 0.1s;
+  transition:
+    background-color 0.3s,
+    transform 0.1s;
 }
 
 .payment-card button:hover {

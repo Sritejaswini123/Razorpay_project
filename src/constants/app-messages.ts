@@ -22,11 +22,7 @@ export const USER_NOT_FOUND = "User not found ";
 
 export const USER_DELETEED = "User deleted successfully";
 
-
-
-
-
-//Razorpay messages
+// Razorpay messages
 export const ORDER_CREATED = "Order created successfully";
 export const ORDER_CREATION_FAILED = "Failed to create order";
 export const PAYMENT_VERIFIED = "Payment verified successfully";

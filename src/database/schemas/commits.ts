@@ -1,5 +1,7 @@
-import { date, index, integer, pgTable, serial, text, time, varchar } from "drizzle-orm/pg-core";
+import { date, index, integer, pgTable, serial, text, time } from "drizzle-orm/pg-core";
+
 import { timestamps } from "./helper-columns";
+
 export const commits = pgTable("commits", {
   id: serial().primaryKey(),
   date: date({ mode: "date" }).notNull(),

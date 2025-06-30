@@ -3,11 +3,11 @@ import { cors } from "hono/cors";
 import { SERVICE_UP } from "./constants/app-messages.js";
 import env from "./env.js";
 import factory from "./factory.js";
+import payRoutes from "./routes/paymentRoutes.js";
 import notFound from "./utils/not-found.js";
 import onError from "./utils/on-error.js";
 import { piLogger } from "./utils/pino-logger.js";
 import { sendResponse } from "./utils/send-response.js";
-import payRoutes from "./routes/paymentRoutes.js";
 
 const app = factory.createApp().basePath(env.API_VERSION);
 
@@ -22,7 +22,7 @@ app.get("/", (c) => {
 });
 // user routes..........
 console.log("inside app");
-app.route("/",payRoutes)
+app.route("/", payRoutes);
 
 app.get("/error", (c) => {
   c.status(422);

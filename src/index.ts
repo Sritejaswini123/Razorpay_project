@@ -6,7 +6,6 @@ import env from "./env";
 const port = env.PORT;
 const apiVersion = env.API_VERSION;
 
-
 serve({
   fetch: app.fetch,
   port,
