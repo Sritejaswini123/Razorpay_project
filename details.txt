@@ -1,0 +1,25 @@
+FLOW FOR THE RAZOR PAY API: NO SUBSCRIPTION
+FOR THE BACKEND :
+FIRST CREATE THE DB WITH THE DETAIL
+- build the order id  api 
+- build the verify payment using the razorpay signature 
+-- the generated sigantures is verified using the verify payment
+
+FOR THE FRONTEND : 
+-Create the  front page and pay now button
+-once the pay now button is clicked the order id is generated and the order id is passed to the backend
+-the backend then generates the order id and sends it to the frontend
+-the frontend then sends the order id to the razorpay api and the payment is done
+-the payment is verified using the verify payment api and the order id is updated in the db
+-once the verification is done the payment will get successful
+
+
+
+FLOW FOR THE RAZOR PAY API: WITH SUBSCRIPTION
+FOR THE BACKEND :
+First create the plan schema and insert the plan details
+-create the customer schema add the customer details
+-create the subscription schema and add the subscription details
+-once the user click on the subscription plans it moves to razorpay checkout and the payment is successful
+
+

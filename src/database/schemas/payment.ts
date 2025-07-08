@@ -1,6 +1,5 @@
 // src/db/schema/payments.ts
 import { integer, pgTable, serial, text, timestamp, varchar } from "drizzle-orm/pg-core";
-
 export const payments = pgTable("payments", {
   id: serial("id").primaryKey(),
   amount: integer("amount").notNull(),
@@ -14,3 +13,4 @@ export const payments = pgTable("payments", {
   created_at: timestamp("created_at").defaultNow(),
   updated_at: timestamp("updated_at").defaultNow(),
 });
+

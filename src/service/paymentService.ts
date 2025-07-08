@@ -12,7 +12,6 @@ interface CreateOrderParams {
   currency?: string;
   receipt: string;
 }
-
 export async function createRazorpayOrder({ amount, currency = razorpayConfig.currency, receipt }: CreateOrderParams) {
   const razorpay = new Razorpay({
     key_id: razorpayConfig.razor_pay_key_id,
@@ -33,6 +32,7 @@ export async function createRazorpayOrder({ amount, currency = razorpayConfig.cu
 
   return order;
 }
+
 
 export function verifyPaymentSignature(orderId: string, paymentId: string, signature: string): boolean {
   const generatedSignature = crypto

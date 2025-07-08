@@ -1,0 +1,19 @@
+meta {
+  name: create_order_id
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://localhost:7000/v1.0/create-order
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "amount":21000,
+     "receipt": "tejaswinireceipt"
+  }
+  
+}

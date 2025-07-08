@@ -7,6 +7,8 @@ import { createRazorpayOrder, updatePaymentOnVerification, verifyPaymentSignatur
 // Create Order Handler
 export async function createOrderHandler(c: Context) {
   try {
+
+    
     const body = await c.req.json();
     const { amount, receipt } = body;
     if (!amount || !receipt) {
