@@ -1,0 +1,21 @@
+meta {
+  name: create-customers
+  type: http
+  seq: 6
+}
+
+post {
+  url: http://localhost:7000/v1.0/create-customer
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "name": "saikrishna",
+    "email": "saikrishna@gmail.com",
+    "contact": "9123456789",
+    "address": "kerala"
+  }
+  
+}

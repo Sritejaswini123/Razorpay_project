@@ -1,0 +1,27 @@
+meta {
+  name: subscription
+  type: http
+  seq: 10
+}
+
+post {
+  url: http://localhost:7000/v1.0/subscribe
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "plan_id": "plan_QrCYEa7sAHGkGC",
+    "total_count": 12,
+    "quantity": 1,
+    "start_at": 1752132000,
+    "expire_by": 1752135600,
+    "customer_notify": true,
+    "notes": {
+      "project_name": "newproject",
+      "created_by": "entering the amount for subscription"
+    }
+  }
+  
+}

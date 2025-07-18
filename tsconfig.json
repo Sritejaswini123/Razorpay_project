@@ -9,6 +9,7 @@
       "node"
     ],
     "strict": true,
+    "outDir": "./dist",
     "skipLibCheck": true
   },
   "exclude": [

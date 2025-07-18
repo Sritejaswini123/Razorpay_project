@@ -1,0 +1,21 @@
+meta {
+  name: create subscriptions
+  type: http
+  seq: 8
+}
+
+post {
+  url: http://localhost:7000/v1.0/subscribe
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "plan_id": "plan_QqsOGRozyIojtc",
+    "total_count": 6,
+    "quantity": 1,
+    "customer_notify": 1
+  }
+  
+}

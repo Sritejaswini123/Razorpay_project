@@ -10,3 +10,13 @@ export const USER_FETCHED = "User fetched successfully";
 export const USER_ID_REQUIRED = "User ID is required";
 export const USER_NOT_FOUND = "User not found ";
 export const USER_DELETEED = "User deleted successfully";
+// Razorpay messages
+export const ORDER_CREATED = "Order created successfully";
+export const ORDER_CREATION_FAILED = "Failed to create order";
+export const PAYMENT_VERIFIED = "Payment verified successfully";
+export const PAYMENT_VERIFICATION_FAILED = "Failed to verify payment";
+export const INVALID_VERIFICATION_CREDENTIALS = "Invalid credentials. Payment verification failed.";
+export const PAYMENT_VERIFICATION_SUCCESS = "Payment verification successful";
+export const MISSED_FIELDS = "Missing required field(s): ";
+export const PAYMENT_FAILED = "Payment failed";
+export const AMOUNT_REQUIRED = "Amount is required";

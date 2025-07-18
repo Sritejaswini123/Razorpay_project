@@ -1,5 +1,6 @@
 import { useState } from "react";
 import PaymentCard from "./paymentCard";
+import PlansPage from "./components/PlansPage";
 import "./App.css";
 
 function App() {
@@ -8,7 +9,7 @@ function App() {
   return (
     <div>
   <h1> Welcome to Razorpay Payment</h1>
-  <PaymentCard />
+     <PlansPage/>
     </div>
   );
 }

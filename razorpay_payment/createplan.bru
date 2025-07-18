@@ -1,0 +1,28 @@
+meta {
+  name: createplan
+  type: http
+  seq: 4
+}
+
+post {
+  url: http://localhost:7000/v1.0/create-plan
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "period": "weekly",
+    "interval": 1,
+    "item": {
+      "name": "Test plan - Weekly",
+      "amount": 69900,
+      "currency": "INR",
+      "description": "Description for the test plan"
+    },
+    "notes": {
+      "notes_key_1": "Tea, Earl Grey, Hot"
+    }
+  }
+  
+}

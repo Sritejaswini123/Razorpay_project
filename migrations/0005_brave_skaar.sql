@@ -1,0 +1,1 @@
+ALTER TABLE "createTemplate" ALTER COLUMN "language" DROP NOT NULL;

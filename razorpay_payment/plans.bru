@@ -1,0 +1,26 @@
+meta {
+  name: plans
+  type: http
+  seq: 7
+}
+
+post {
+  url: http://localhost:7000/v1.0/plan
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "period": "weekly",
+    "interval": 1,
+    "name": "Weekly platinum Plan",
+    "amount": 10100,
+    "currency": "INR",
+    "description": "Weekly platinum Membership",
+    "notes": {
+      "note_key_1": "Weekly plan extra info"
+    }
+  }
+  
+}

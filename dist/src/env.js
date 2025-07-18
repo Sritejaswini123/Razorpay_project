@@ -10,6 +10,8 @@ const VEnvSchema = z.object({
     DB_USER: z.string(),
     DB_PASSWORD: z.string(),
     DB_NAME: z.string(),
+    RAZOR_PAY_KEY_ID: z.string(),
+    RAZOR_PAY_KEY_SECRET: z.string(),
 });
 // eslint-disable-next-line import/no-mutable-exports
 let envData;
